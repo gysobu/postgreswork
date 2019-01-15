@@ -1,3 +1,9 @@
+
+-- PostgreSQL Exercises
+
+-- Create Database 
+-- createdb restaurant;
+
 -- CREATE TABLE restaurant (
 --     id SERIAL PRIMARY KEY,
 --     name varchar,
@@ -30,46 +36,46 @@
 
 
 -- restaurants in the category of 'BBQ'
--- SELECT name FROM restaurant where category='BBQ';
+-- SELECT * FROM restaurant where category='BBQ';
 
 -- restaurants that do take out
--- SELECT name FROM restaurant where doestakeout='TRUE'; 
+-- SELECT * FROM restaurant where doestakeout='TRUE'; 
 
 -- restaurants that do take out and is in the category of 'BBQ'
--- SELECT name FROM restaurant where doestakeout='TRUE' and category='BBQ';
+-- SELECT * FROM restaurant where doestakeout='TRUE' and category='BBQ';
 
 -- restaurants within 2 miles
--- SELECT name FROM  restaurant where distance < 2;
+-- SELECT * FROM  restaurant where distance < 2;
 
 -- restaurants you haven't ate at in the last week
--- SELECT name FROM restaurant WHERE lastimeyouatethere < '2019-01-06'
+-- SELECT * FROM restaurant WHERE lastimeyouatethere < '2019-01-06'
 
 -- restaurants you haven't ate at in the last week and has 5 stars
--- SELECT name FROM  restaurant WHERE lastimeyouatethere < '2019-01-06' and stars=5
+-- SELECT * FROM  restaurant WHERE lastimeyouatethere < '2019-01-06' and stars=5
 
 -- list restaurants by the closest distance.
--- SELECT min(distance) from restaurant;
+-- SELECT * from  restaurant ORDER BY distance ASC;
 
--- -- SELECT name from  restaurant ORDER BY distance;
--- SELECT name FROM restaurant  ORDER BY distance DESC LIMIT 2;
+ 
+-- SELECT * FROM restaurant  ORDER BY distance DESC LIMIT 2;
 
 -- list the top 2 restaurants by distance.
--- SELECT name FROM restaurant ORDER BY distance  ASC LIMIT 2; 
+-- SELECT * FROM restaurant ORDER BY distance  ASC LIMIT 2; 
 
 -- list the top 2 restaurants by stars.
--- SELECT name from restaurant ORDER BY stars DESC LIMIT 2;
+-- SELECT * from restaurant ORDER BY stars DESC LIMIT 2;
 
 -- list the top 2 restaurants by stars where the distance is less than 2 miles.
--- SELECT name from restaurant  where  distance < 2  ORDER BY stars DESC LIMIT 2;
+-- SELECT * from restaurant  where  distance < 2  ORDER BY stars DESC LIMIT 2;
 
 -- count the number of restaurants in the db.
 -- SELECT COUNT(name) FROM restaurant;
 
 -- count the number of restaurants by category.
--- SELECT COUNT(name) from  restaurant GROUP BY category;
+--  SELECT  category,COUNT(name) from  restaurant GROUP BY category;
 
 -- get the average stars per restaurant by category.
--- SELECT AVG(stars) AS AVGSTARS from restaurant GROUP BY category;
+-- SELECT category, AVG(stars) as Avgofstars from restaurant GROUP BY category;
 
 -- get the max stars of a restaurant by category.
--- SELECT max(stars) AS Maxstars from restaurant GROUP BY category;
+-- SELECT  category,max(stars) AS Maxstars from restaurant GROUP BY category;
